@@ -88,6 +88,9 @@ public class Jeopardy implements ActionListener {
 		quizPanel.add(fourthButton);
 		quizPanel.add(fifthButton);
 		
+		thirdButton.addActionListener(this);
+		fourthButton.addActionListener(this);
+		fifthButton.addActionListener(this);
 		
 		 /*
 		 * [optional] Use the showImage or playSound methods when the user answers a
@@ -119,9 +122,23 @@ public class Jeopardy implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		
 		// Remove this temporary message after testing:
-		JOptionPane.showMessageDialog(null, "pressed " + ((JButton) e.getSource()).getText() + " button");
+		
 
 		JButton buttonPressed = (JButton) e.getSource();
+		
+		if(buttonPressed==thirdButton) {
+			askQuestion("what is the trick where you swing the scooter above your head", "briflip", 600);
+		}
+		
+		if(buttonPressed==fourthButton) {
+			askQuestion("Which scooter rider has also won 3 XGames gold medals for BMX", "Ryan Williams", 800);
+		}
+		
+		if(buttonPressed==fifthButton) {
+			askQuestion("who landed the first flair on a scooter", "Terry Price", 1000);
+		}
+		
+		
 		// If the buttonPressed was the firstButton
 		if(buttonPressed==firstButton) {
 			askQuestion("what trick is a 360 degree spin of the deck", "tailwhip", 200);
