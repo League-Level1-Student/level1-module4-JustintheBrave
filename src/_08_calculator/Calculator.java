@@ -33,12 +33,15 @@ public class Calculator {
 		JButton button3 = new JButton();
 		JButton button4 = new JButton();
 		
+		frame.setVisible(true);
 		panel.add(button1);
 		panel.add(button2);
 		panel.add(button3);
 		panel.add(button4);
 		panel.add(text1);
 		panel.add(text2);
+		frame.add(panel);
+	
 		
 		
 		
@@ -46,9 +49,7 @@ public class Calculator {
 		
 		
 		
-		
-		
-		
+	
 		
 	}
 }
