@@ -57,9 +57,35 @@ public class FortuneTeller extends JPanel implements Runnable, MouseListener {
    		 // 10. Play the sound
    		  sound.play();
    		 // 11. Use the pause() method below to wait until your music has finished
-   		 pause(9);
+   		  pause(5);
    		 // 12. Insert your completed Magic 8 ball code here
-   		 	Magic8Ball magic = new Magic8Ball();
+  		int ran = new Random().nextInt(4);;
+  		// 3. Print out this variable
+  			System.out.println(ran + "");
+  		// 4. Get the user to enter a question for the 8 ball
+  			JOptionPane.showInputDialog("Ask the magic 8 ball a question");
+  		// 5. If the random number is 0
+  			if(ran==0) {
+  		// -- tell the user "Yes"
+  				JOptionPane.showMessageDialog(null, "Yes");
+  			}
+  		// 6. If the random number is 1
+  			if(ran==1) {
+  		// -- tell the user "No"
+  				JOptionPane.showMessageDialog(null, "No");
+  			}
+  		// 7. If the random number is 2
+  			if(ran==2) {
+  		// -- tell the user "Maybe you should ask Google?"
+  				JOptionPane.showMessageDialog(null, "Maybe you should ask Google");
+  			}
+  		// 8. If the random number is 3
+  			if(ran==3) {
+  		// -- write your own answer
+  				JOptionPane.showMessageDialog(null, " L \n L \n L \n L \n L L L L L ");
+  			
+   		 	
+  			}
    	 }
 
     }
