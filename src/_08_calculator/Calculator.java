@@ -1,5 +1,7 @@
 package _08_calculator;
 
+import java.awt.Dimension;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -42,13 +44,16 @@ public class Calculator {
 		panel.add(text2);
 		frame.add(panel);
 	
+		//arrangement test
+		frame.setPreferredSize(new Dimension(500,750));
+		button1.setPreferredSize(new Dimension(300,100);
 		
 		
 		
 		
 		
 		
-		
+		frame.pack();
 	
 		
 	}
