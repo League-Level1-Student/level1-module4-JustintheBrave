@@ -64,7 +64,7 @@ public class Calculator implements ActionListener {
 		panel.add(button3);
 		panel.add(button4);
 		frame.add(panel);
-		frame.setTitle("Justin's Amazing Calculator");
+		frame.setTitle("Justin's Not So Amazing Calculator");
 		panel.add(ans);
 	
 		//size
