@@ -6,8 +6,15 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import twitter4j.Query;
+import twitter4j.QueryResult;
+import twitter4j.Twitter;
+import twitter4j.TwitterFactory;
+import twitter4j.auth.AccessToken;
 
 public class LatestTweet implements ActionListener {
 
@@ -15,6 +22,8 @@ public class LatestTweet implements ActionListener {
 	static JPanel panel = new JPanel();
 	static JButton button = new JButton();
 	static JTextField text = new JTextField();
+	static JLabel label = new JLabel();
+	static String tweet;
 	
 	public void display() {
 		frame.setVisible(true);
@@ -22,9 +31,9 @@ public class LatestTweet implements ActionListener {
 		text.setPreferredSize(new Dimension(100,25));
 		panel.add(button);
 		button.setText("Tweet Retriever");
-		frame.add(panel);
 		button.addActionListener(this);
-		
+		panel.add(label);
+		frame.add(panel);
 		
 		
 		
@@ -60,5 +69,8 @@ public class LatestTweet implements ActionListener {
 		if(e.getSource()==button) {
 			System.out.println("Tweet, tweet");
 		}
+		tweet=getLatestTweet(text.getText());
+		label.setText(tweet);
+		frame.pack();
 	}
 }
