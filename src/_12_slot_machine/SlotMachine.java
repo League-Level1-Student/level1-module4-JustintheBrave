@@ -1,5 +1,7 @@
 package _12_slot_machine;
 
+import java.awt.Dimension;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -14,6 +16,8 @@ public class SlotMachine {
 	
 	public void GUI() {
 		frame.setVisible(true);
+		frame.setTitle("Slot Machine");
+		frame.setPreferredSize(new Dimension (450, 150));
 		panel.add(label1);
 		panel.add(label2);
 		panel.add(label3);
