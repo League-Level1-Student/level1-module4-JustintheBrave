@@ -18,14 +18,15 @@ public class WhackAMole implements ActionListener {
 	public static void main(String args[]) {
 		WhackAMole mole = new WhackAMole();
 		mole.GUI();
+		mole.drawButtons();
 		date = new Date();
 	}
 	
 	static JFrame frame = new JFrame();
 	static JPanel panel = new JPanel();
 	static int moleHits = 0;
-	static Random ran = new Random();
-	static int moleNum;
+	static int miss = 0;
+	Random ran = new Random();
 	
 	public void GUI() {
 		frame.setTitle("Whack a Mole");
@@ -33,12 +34,12 @@ public class WhackAMole implements ActionListener {
 		frame.setVisible(true);
 		frame.setPreferredSize(new Dimension (250, 300));
 		frame.pack();
-		drawButtons();
 	}
 		
 	
 	public void drawButtons() {
-		moleNum = ran.nextInt(24);
+		int moleNum = ran.nextInt(24);
+		panel.removeAll();
 		for (int i = 0; i < 24; i++) {
 			JButton button = new JButton();
 			if(i==moleNum) {
@@ -80,17 +81,44 @@ public class WhackAMole implements ActionListener {
 		// TODO Auto-generated method stub
 		JButton buttonPressed = (JButton) e.getSource();
 		if(! buttonPressed.getText().equalsIgnoreCase("Mole!")) {
-			speak("ur bad");	
+			miss++;
+			
+			WhackAMole mole = new WhackAMole();
+			frame.dispose();
+			mole.GUI();
+			mole.drawButtons();
 	}
+		
+		if(miss==1) {
+			speak("dont miss again");
+		}
+		
+		else if(miss==2) {
+			speak("ur bad");
+		}
+		
+		else if(miss==3) {
+			speak("how are u so bad");
+		}
+		else if(miss==4) {
+			speak("garbage");
+		}
+		
+		else if(miss==5) {
+			speak("i give up, you lose");
+			System.exit(0);
+		}
+		
 		if(buttonPressed.getText().equalsIgnoreCase("Mole!")) {
 			moleHits++;	
+			frame.dispose();
+			GUI();
+			drawButtons();
+			
 	}
 		if(moleHits==10) {
 			endGame(date, 10);
-			frame.dispose();
+			System.exit(0);
 		}
-		frame.dispose();
-		moleNum = ran.nextInt(24);
-		GUI();
 	}
 }
