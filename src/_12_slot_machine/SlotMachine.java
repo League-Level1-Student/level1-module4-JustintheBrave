@@ -1,6 +1,8 @@
 package _12_slot_machine;
 
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Random;
@@ -12,7 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class SlotMachine {
+public class SlotMachine implements ActionListener {
 	
 	static JFrame frame = new JFrame();
 	static JPanel panel = new JPanel();
@@ -30,6 +32,7 @@ public class SlotMachine {
 		panel.add(label2);
 		panel.add(label3);
 		panel.add(button);
+		button.addActionListener(this);
 		frame.add(panel);
 		frame.pack();
 	}
@@ -133,6 +136,12 @@ public class SlotMachine {
 	JLabel imageLabel = new JLabel(icon);
 	return imageLabel;
 }
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 
 }
