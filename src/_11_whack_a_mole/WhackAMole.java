@@ -13,14 +13,19 @@ import javax.swing.JPanel;
 
 public class WhackAMole implements ActionListener {
 	
+	static Date date;
+	
 	public static void main(String args[]) {
 		WhackAMole mole = new WhackAMole();
 		mole.GUI();
+		date = new Date();
 	}
 	
 	static JFrame frame = new JFrame();
 	static JPanel panel = new JPanel();
 	static int moleHits = 0;
+	static Random ran = new Random();
+	static int moleNum;
 	
 	public void GUI() {
 		frame.setTitle("Whack a Mole");
@@ -30,12 +35,10 @@ public class WhackAMole implements ActionListener {
 		frame.pack();
 		drawButtons();
 	}
-	
+		
 	
 	public void drawButtons() {
-		Random ran = new Random();
-		int moleNum = ran.nextInt(24);
-		
+		moleNum = ran.nextInt(24);
 		for (int i = 0; i < 24; i++) {
 			JButton button = new JButton();
 			if(i==moleNum) {
@@ -82,11 +85,12 @@ public class WhackAMole implements ActionListener {
 		if(buttonPressed.getText().equalsIgnoreCase("Mole!")) {
 			moleHits++;	
 	}
-		if(moleHits>=10) {
-
+		if(moleHits==10) {
+			endGame(date, 10);
+			frame.dispose();
 		}
 		frame.dispose();
-		drawButtons();
-		
+		moleNum = ran.nextInt(24);
+		GUI();
 	}
 }
